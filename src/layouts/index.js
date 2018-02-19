@@ -1,9 +1,12 @@
 import React from 'react';
+import { GoogleFont } from 'react-typography';
 
+import typography from '../utils/typography';
 import Header from '../components/Header';
 
 export default ({ children }) => (
-  <div style={{ margin: '0 auto', maxWidth: 950, padding: '1.25rem 1rem' }}>
+  <div>
+    <GoogleFont typography={typography} />
     <Header />
     {children()}
   </div>

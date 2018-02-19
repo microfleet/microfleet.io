@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "gatsby": "^1.9.202",
-    "gatsby-link": "^1.6.37"
+    "gatsby-link": "^1.6.37",
+    "react-typography": "^0.16.13",
+    "typography-theme-grand-view": "^0.15.10"
   },
   "devDependencies": {
     "@babel/plugin-syntax-export-default-from": "^7.0.0-beta.40",
