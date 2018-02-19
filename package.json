@@ -1,0 +1,14 @@
+{
+  "name": "mf-website",
+  "description": "Microfleet documentation website",
+  "license": "MIT",
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve"
+  },
+  "dependencies": {
+    "gatsby": "^1.9.202",
+    "gatsby-link": "^1.6.37"
+  }
+}
