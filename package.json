@@ -10,6 +10,9 @@
   "dependencies": {
     "gatsby": "^1.9.202",
     "gatsby-link": "^1.6.37",
+    "react-hamburger-menu": "^1.0.0",
+    "react-jss": "^8.3.3",
+    "react-responsive": "^4.0.4",
     "react-typography": "^0.16.13",
     "typography-theme-grand-view": "^0.15.10"
   },
