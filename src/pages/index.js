@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'gatsby-link';
+import injectSheet from 'react-jss';
 
 import InfoBlock from '../components/InfoBlock';
 import { colors, fonts, dimensions } from '../theme';
@@ -27,7 +28,7 @@ const styles = {
     width: '100%',
     maxWidth: dimensions.maxWidth,
     margin: '0 auto',
-    padding: '40px 0',
+    padding: `40px ${dimensions.padding.horizontal}px`,
   },
   mainContentTextContainer: {
     width: 380,
@@ -85,27 +86,37 @@ const styles = {
     maxWidth: 120,
     maxHeight: 40,
   },
+  '@media (min-width: 1201px)': {
+    bgImage: {
+      diplay: 'inline',
+    },
+  },
+  '@media (max-width: 1200px)': {
+    bgImage: {
+      display: 'none',
+    },
+  },
 };
 
-export default () => (
-  <div style={styles.root}>
-    <img src={mainImage} style={styles.bgImage} alt="" />
+const MainPage = ({ classes }) => (
+  <div className={classes.root}>
+    <img src={mainImage} className={classes.bgImage} alt="" />
     {/* eslint-disable max-len */}
-    <div style={styles.mainContentBg}>
+    <div className={classes.mainContentBg}>
       <div
         style={{
           ...styles.blockContainer,
           backgroundColor: colors.mainColor,
         }}
       >
-        <div style={styles.mainContentTextContainer}>
-          <h1 style={styles.text}>
+        <div className={classes.mainContentTextContainer}>
+          <h1 className={classes.text}>
             Microfleet Fastlane to the market
           </h1>
           <p style={{ ...styles.text, opacity: 0.7 }}>
             Opinionated framework with simple, flexible, scalable and resilent prebuilt microservices that glue together like lego blocks.
           </p>
-          <Link to="/" style={styles.buttonLink}>
+          <Link to="/" className={classes.buttonLink}>
             Get started
           </Link>
         </div>
@@ -128,15 +139,15 @@ export default () => (
       subtl="Readable code, small  functional scope"
       desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem"
     />
-    <div style={styles.codeBlockBg}>
-      <div style={styles.blockContainer}>
+    <div className={classes.codeBlockBg}>
+      <div className={classes.blockContainer}>
         <h3>
           Code example
         </h3>
-        <p style={styles.darkText}>
+        <p className={classes.darkText}>
           Use attributes from other resources to create an infrastructure composed of resources across multiple providers.
         </p>
-        <pre style={styles.codeBlock}>
+        <pre className={classes.codeBlock}>
           {`
     http localhost:3000/mservice/add
 
@@ -157,23 +168,23 @@ export default () => (
     }
           `}
         </pre>
-        <p style={styles.darkText}>
+        <p className={classes.darkText}>
           The intro contains a walkthrough guide, introductory literature, and a range of examples to experiment with Microfleet.
         </p>
-        <Link to="/" style={styles.buttonLink}>
+        <Link to="/" className={classes.buttonLink}>
           Get started
         </Link>
       </div>
     </div>
-    <div style={styles.blockContainer}>
-      <p style={styles.customersText}>
+    <div className={classes.blockContainer}>
+      <p className={classes.customersText}>
         Some of our customers
       </p>
-      <div style={styles.customers}>
+      <div className={classes.customers}>
         {
           MAIN.customers.map(customer => (
-            <div style={styles.customerContainer} key={customer}>
-              <img src={customer} style={styles.customer} alt="" />
+            <div className={classes.customerContainer} key={customer}>
+              <img src={customer} className={classes.customer} alt="" />
             </div>
           ))
         }
@@ -182,3 +193,5 @@ export default () => (
     {/* eslint-enable max-len */}
   </div>
 );
+
+export default injectSheet(styles)(MainPage);

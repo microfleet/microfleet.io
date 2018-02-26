@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'gatsby-link';
+import injectSheet from 'react-jss';
 
 import { colors, fonts, dimensions } from '../../theme';
 import githubIcon from '../../static/github.svg';
@@ -14,8 +15,8 @@ const styles = {
     alignItems: 'center',
     margin: 'auto',
     width: '100%',
-    height: 70,
     maxWidth: dimensions.maxWidth,
+    padding: `10px ${dimensions.padding.horizontal}px`,
   },
   navLinkContainer: {
     margin: 0,
@@ -30,14 +31,24 @@ const styles = {
   navigation: {
     display: 'flex',
   },
+  navigationMenu: {
+    display: 'flex',
+    flexDirection: 'row',
+    // padding: '20px 0',
+  },
   c: {
     fontFamily: fonts.family.main,
     color: colors.white,
     fontSize: fonts.size.xxxs,
   },
+  [dimensions.media.mobile]: {
+    navigationMenu: {
+      flexDirection: 'column',
+    },
+  },
 };
 
-const ListLink = props => (
+const NavLink = props => (
   <p style={styles.navLinkContainer}>
     <Link to={props.to} style={styles.navLink}>
       {props.children}
@@ -45,23 +56,25 @@ const ListLink = props => (
   </p>
 );
 
-export default ({ menuItems }) => (
-  <div style={styles.container}>
-    <div style={styles.contentContainer}>
-      <div style={styles.navigation}>
+const Footer = ({ menuItems, classes }) => (
+  <div className={classes.container}>
+    <div className={classes.contentContainer}>
+      <div className={classes.navigationMenu}>
         {
           menuItems.map(item =>
-            <ListLink to={item.route} key={item.title}>{item.title}</ListLink>)
+            <NavLink to={item.route} key={item.title}>{item.title}</NavLink>)
         }
       </div>
     </div>
-    <div style={styles.contentContainer}>
-      <div style={styles.navigation}>
+    <div className={classes.contentContainer}>
+      <div className={classes.navigation}>
         <a href="https://github.com/microfleet/core" target="_blank" rel="noopener noreferrer">
           <img src={githubIcon} style={{ width: 24 }} alt="Github" />
         </a>
       </div>
-      <p style={styles.c}>{`${(new Date()).getFullYear()} Microfleet`}</p>
+      <p className={classes.c}>{`${(new Date()).getFullYear()} Microfleet`}</p>
     </div>
   </div>
 );
+
+export default injectSheet(styles)(Footer);

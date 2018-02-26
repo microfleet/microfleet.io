@@ -16,6 +16,7 @@ const styles = {
     alignItems: 'center',
     justifyContent: alignTextRight ? 'flex-end' : 'flex-start',
     margin: 'auto',
+    padding: `0 ${dimensions.padding.horizontal}px`,
   }),
   textContainer: {
     width: 280,

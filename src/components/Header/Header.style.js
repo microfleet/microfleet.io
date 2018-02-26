@@ -6,6 +6,7 @@ export default {
     display: 'flex',
     alignItems: 'center',
     backgroundColor: colors.secondaryColor,
+    padding: `0 ${dimensions.padding.horizontal}px`,
   },
   mobileNavContainer: {
     diplay: 'flex',
@@ -15,7 +16,7 @@ export default {
     backgroundColor: colors.secondaryColor,
     width: '100%',
     maxWidth: dimensions.maxWidth,
-    marginTop: 0,
+    paddingLeft: dimensions.padding.horizontal,
   },
   contentContainer: {
     display: 'flex',
@@ -33,7 +34,8 @@ export default {
     display: 'flex',
   },
   navLinkContainer: {
-    margin: 10,
+    margin: 20,
+    marginLeft: 0,
   },
   navLink: {
     textTransform: 'uppercase',

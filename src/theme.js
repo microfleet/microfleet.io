@@ -39,6 +39,22 @@ export const fonts = {
 
 export const dimensions = {
   maxWidth: 964,
+  padding: {
+    vertical: 40,
+    horizontal: 20,
+  },
+  media: {
+    // main breakpoints
+    mobile: '@media (max-width: 799px)',
+    desktop: '@media (min-width: 800px)',
+
+    // precise
+    xsmall: '@media (max-width: 479px)',
+    small: '@media (min-width: 480px) and (max-width: 799px)',
+    medium: '@media (min-width: 800px) and (max-width: 1199px)',
+    large: '@media (min-width: 1200px) and (max-width: 1439px)',
+    xlarge: '@media (min-width: 1440px)',
+  },
 };
 
 export default colors;
