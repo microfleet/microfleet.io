@@ -6,9 +6,17 @@ export const colors = {
   grey: {
     light: '#F6F8FA',
   },
+  text: {
+    main: '#212b35',
+    secondary: '#637280',
+  },
 };
 
 export const fonts = {
+  family: {
+    main: 'Montserrat',
+    secondary: 'Open Sans',
+  },
   size: {
     xxxs: 12,
     xxs: 14,
@@ -24,8 +32,13 @@ export const fonts = {
     thin: 100,
     light: 200,
     normal: 400,
+    medium: 600,
     bold: 700,
   },
+};
+
+export const dimensions = {
+  maxWidth: 964,
 };
 
 export default colors;

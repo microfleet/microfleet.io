@@ -11,6 +11,7 @@ const typography = new Typography({
       name: 'Montserrat',
       styles: [
         '400',
+        '600',
         '700',
       ],
     },
@@ -24,6 +25,19 @@ const typography = new Typography({
       ],
     },
   ],
+  baseLineHeight: 1.6,
+  overrideThemeStyles: () => ({
+    '*': {
+      '-webkit-font-smoothing': 'antialiased',
+      '-moz-osx-font-smoothing': 'grayscale',
+    },
+    a: {
+      transition: 'opacity ease 0.5s',
+    },
+    'a:hover': {
+      opacity: 0.5,
+    },
+  }),
 });
 
 export default typography;
