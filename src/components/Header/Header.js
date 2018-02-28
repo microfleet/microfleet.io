@@ -4,12 +4,14 @@ import MediaQuery from 'react-responsive';
 import HeaderDesktop from './HeaderDesktop';
 import HeaderMobile from './HeaderMobile';
 
+import { media } from '../../theme';
+
 export const Header = props => (
   <div>
-    <MediaQuery query="(min-width: 801px)">
+    <MediaQuery query={media.greaterThan('medium', { dropPrefix: true })}>
       <HeaderDesktop {...props} />
     </MediaQuery>
-    <MediaQuery query="(max-width: 800px)">
+    <MediaQuery query={media.lessThan('medium', { dropPrefix: true })}>
       <HeaderMobile {...props} />
     </MediaQuery>
   </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 import injectSheet from 'react-jss';
 
-import { colors, fonts, dimensions } from '../../theme';
+import { colors, fonts, dimensions, media } from '../../theme';
 import githubIcon from '../../static/github.svg';
 
 const styles = {
@@ -34,14 +34,13 @@ const styles = {
   navigationMenu: {
     display: 'flex',
     flexDirection: 'row',
-    // padding: '20px 0',
   },
   c: {
     fontFamily: fonts.family.main,
     color: colors.white,
     fontSize: fonts.size.xxxs,
   },
-  [dimensions.media.mobile]: {
+  [media.lessThan('medium')]: {
     navigationMenu: {
       flexDirection: 'column',
     },

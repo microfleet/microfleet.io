@@ -3,21 +3,57 @@ import Link from 'gatsby-link';
 import injectSheet from 'react-jss';
 
 import InfoBlock from '../components/InfoBlock';
-import { colors, fonts, dimensions } from '../theme';
-import mainImage from '../static/main-image.png';
+import {
+  colors,
+  fonts,
+  dimensions,
+  media,
+} from '../theme';
 import { MAIN } from '../config/content';
+
+import mainImage from '../static/main-image.png';
+import rocketImage from '../static/rocket.png';
+import resilientImage from '../static/resilient.png';
+import scalableImage from '../static/scalable.png';
+import simpleImage from '../static/simple.png';
+
+const imgStyle = {
+  display: 'none',
+  alignSelf: 'flex-end',
+  width: '40%',
+  margin: 0,
+};
 
 const styles = {
   root: {
     overflow: 'hidden',
     position: 'relative',
+    display: 'flex',
+    flexDirection: 'column',
   },
   bgImage: {
     position: 'absolute',
-    width: '67%',
-    minWidth: 1050,
+    width: 1050,
     right: -50,
     zIndex: 0,
+  },
+  rocketImage: {
+    ...imgStyle,
+    width: '80%',
+    position: 'relative',
+    margin: 'auto',
+    right: -100,
+  },
+  resilientImage: {
+    ...imgStyle,
+    margin: '30px 0 0 0',
+  },
+  scalableImage: {
+    ...imgStyle,
+    alignSelf: 'flex-start',
+  },
+  simpleImage: {
+    ...imgStyle,
   },
   mainContentBg: {
     backgroundColor: colors.mainColor,
@@ -33,6 +69,14 @@ const styles = {
   mainContentTextContainer: {
     width: 380,
     paddingTop: 60,
+    position: 'relative',
+    zIndex: 1,
+  },
+  title: {
+    color: colors.white,
+    fontSize: fonts.size.m,
+    fontFamily: fonts.family.main,
+    marginTop: 40,
   },
   text: {
     color: colors.white,
@@ -86,14 +130,46 @@ const styles = {
     maxWidth: 120,
     maxHeight: 40,
   },
-  '@media (min-width: 1201px)': {
-    bgImage: {
-      diplay: 'inline',
+  [media.lessThan('medium')]: {
+    bgImage: { display: 'none' },
+    rocketImage: { display: 'flex' },
+    resilientImage: { display: 'flex' },
+    scalableImage: { display: 'flex' },
+    simpleImage: { display: 'flex' },
+    mainContentTextContainer: {
+      width: 300,
+      paddingTop: 20,
+    },
+    text: {
+      fontSize: fonts.size.xxs,
+    },
+    codeBlock: {
+      fontSize: fonts.size.xxs,
+      padding: 10,
     },
   },
-  '@media (max-width: 1200px)': {
+  [media.lessThan('small')]: {
+    rocketImage: {
+      width: '120%',
+      right: -50,
+    },
+    codeBlock: {
+      fontSize: 9,
+      padding: 0,
+    },
+  },
+  [media.between('small', 'medium')]: {
+    bgImage: { right: -350 },
+  },
+  [media.between('medium', 'large')]: {
+    bgImage: { right: -350 },
+  },
+  [media.between('large', 'xlarge')]: {
+    bgImage: { right: -200 },
+  },
+  [media.greaterThan('xlarge')]: {
     bgImage: {
-      display: 'none',
+      right: `calc((100% - ${dimensions.maxWidth}px) / 2 - 300px)`,
     },
   },
 };
@@ -106,27 +182,31 @@ const MainPage = ({ classes }) => (
       <div
         style={{
           ...styles.blockContainer,
+          display: 'flex',
           backgroundColor: colors.mainColor,
         }}
       >
         <div className={classes.mainContentTextContainer}>
-          <h1 className={classes.text}>
+          <h1 className={classes.title}>
             Microfleet Fastlane to the market
           </h1>
-          <p style={{ ...styles.text, opacity: 0.7 }}>
+          <p className={classes.text}>
             Opinionated framework with simple, flexible, scalable and resilent prebuilt microservices that glue together like lego blocks.
           </p>
           <Link to="/" className={classes.buttonLink}>
             Get started
           </Link>
         </div>
+        <img src={rocketImage} className={classes.rocketImage} alt="" />
       </div>
     </div>
+    <img src={resilientImage} className={classes.resilientImage} alt="" />
     <InfoBlock
       title="Resilient"
       subtl="Consists of several blocks"
       desc="If one of them crushes the others continue working. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et"
     />
+    <img src={scalableImage} className={classes.scalableImage} alt="" />
     <InfoBlock
       title="Scalable"
       subtl="Clone blocks boosting"
@@ -134,6 +214,7 @@ const MainPage = ({ classes }) => (
       bgColor={colors.grey.light}
       alignTextRight
     />
+    <img src={simpleImage} className={classes.simpleImage} alt="" />
     <InfoBlock
       title="Simple"
       subtl="Readable code, small  functional scope"

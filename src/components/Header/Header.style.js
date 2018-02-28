@@ -11,8 +11,8 @@ export default {
   mobileNavContainer: {
     diplay: 'flex',
     flexDirection: 'column',
-    position: 'fixed',
-    zIndex: 1,
+    position: 'absolute',
+    zIndex: 2,
     backgroundColor: colors.secondaryColor,
     width: '100%',
     maxWidth: dimensions.maxWidth,

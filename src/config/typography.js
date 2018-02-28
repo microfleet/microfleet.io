@@ -34,6 +34,9 @@ const typography = new Typography({
     a: {
       transition: 'opacity ease 0.5s',
     },
+    img: {
+      maxWidth: '',
+    },
     'a:hover': {
       opacity: 0.5,
     },
