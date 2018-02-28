@@ -46,8 +46,15 @@ export default class HeaderMobile extends Component {
         {isMenuOpen &&
           <div style={styles.mobileNavContainer}>
             {
-              menuItems.map(item =>
-                <NavLink to={item.route} key={item.title}>{item.title}</NavLink>)
+              menuItems.map(item => (
+                <NavLink
+                  to={item.route}
+                  key={item.title}
+                  handleClick={() => { this.setState({ isMenuOpen: !isMenuOpen }); }}
+                >
+                  {item.title}
+                </NavLink>
+              ))
             }
           </div>
         }
