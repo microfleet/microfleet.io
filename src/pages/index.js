@@ -13,9 +13,6 @@ import { MAIN } from '../config/content';
 
 import mainImage from '../static/main-image.png';
 import rocketImage from '../static/rocket.png';
-import resilientImage from '../static/resilient.png';
-import scalableImage from '../static/scalable.png';
-import simpleImage from '../static/simple.png';
 
 const imgStyle = {
   display: 'none',
@@ -191,7 +188,8 @@ const MainPage = ({ classes }) => (
             Microfleet Fastlane to the market
           </h1>
           <p className={classes.text}>
-            Opinionated framework with simple, flexible, scalable and resilent prebuilt microservices that glue together like lego blocks.
+            Opinionated framework with simple, flexible, scalable and resilent
+            prebuilt microservices that glue together like lego blocks.
           </p>
           <Link to="/" className={classes.buttonLink}>
             Get started
@@ -200,57 +198,34 @@ const MainPage = ({ classes }) => (
         <img src={rocketImage} className={classes.rocketImage} alt="" />
       </div>
     </div>
-    <img src={resilientImage} className={classes.resilientImage} alt="" />
-    <InfoBlock
-      title="Resilient"
-      subtl="Consists of several blocks"
-      desc="If one of them crushes the others continue working. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et"
-    />
-    <img src={scalableImage} className={classes.scalableImage} alt="" />
-    <InfoBlock
-      title="Scalable"
-      subtl="Clone blocks boosting"
-      desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet"
-      bgColor={colors.grey.light}
-      alignTextRight
-    />
-    <img src={simpleImage} className={classes.simpleImage} alt="" />
-    <InfoBlock
-      title="Simple"
-      subtl="Readable code, small  functional scope"
-      desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem"
-    />
+    {
+      MAIN.infoBlocks.map(({
+        title, subtl, desc, image,
+      }, index) => (
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <img src={image.src} className={classes[image.key]} alt="" />
+          <InfoBlock
+            title={title}
+            subtl={subtl}
+            desc={desc}
+            alignTextRight={index % 2 !== 0}
+          />
+        </div>
+      ))
+    }
     <div className={classes.codeBlockBg}>
       <div className={classes.blockContainer}>
         <h3>
           Code example
         </h3>
         <p className={classes.darkText}>
-          Use attributes from other resources to create an infrastructure composed of resources across multiple providers.
+          Use attributes from other resources to create an infrastructure
+          composed of resources across multiple providers.
         </p>
-        <pre className={classes.codeBlock}>
-          {`
-    http localhost:3000/mservice/add
-
-    HTTP/1.1 400 Bad Request
-    Connection: keep-alive
-    Date: Mon, 22 May 2017 21:11:32 GMT
-    Transfer-Encoding: chunked
-    cache-control: no-cache
-    content-encoding: gzip
-    content-type: application/json; charset=utf-8
-    vary: accept-encoding
-
-    {
-        "error": "Bad Request",
-        "message": "add validation failed: data should be array",
-        "name": "ValidationError",
-        "statusCode": 400
-    }
-          `}
-        </pre>
+        <pre className={classes.codeBlock}>{MAIN.codeExample}</pre>
         <p className={classes.darkText}>
-          The intro contains a walkthrough guide, introductory literature, and a range of examples to experiment with Microfleet.
+          The intro contains a walkthrough guide, introductory literature,
+          and a range of examples to experiment with Microfleet.
         </p>
         <Link to="/" className={classes.buttonLink}>
           Get started
