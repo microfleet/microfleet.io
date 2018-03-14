@@ -31,9 +31,9 @@ export default class HeaderMobile extends Component {
                 <Menu
                   isOpen={this.state.isMenuOpen}
                   menuClicked={() => { this.setState({ isMenuOpen: !isMenuOpen }); }}
-                  width={20}
-                  height={16}
-                  strokeWidth={2}
+                  width={25}
+                  height={18}
+                  strokeWidth={3}
                   rotate={0}
                   color={colors.white}
                   borderRadius={0}

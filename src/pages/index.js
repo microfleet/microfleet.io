@@ -17,7 +17,8 @@ import rocketImage from '../static/rocket.png';
 const imgStyle = {
   display: 'none',
   alignSelf: 'flex-end',
-  width: '40%',
+  width: '60%',
+  minWidth: 350,
   margin: 0,
 };
 
@@ -30,16 +31,17 @@ const styles = {
   },
   bgImage: {
     position: 'absolute',
-    width: 1050,
+    width: 1100,
+    top: -50,
     right: -50,
-    zIndex: 0,
   },
   rocketImage: {
     ...imgStyle,
     width: '80%',
+    minWidth: 770,
     position: 'relative',
-    margin: 'auto',
-    right: -100,
+    top: 50,
+    right: -20,
   },
   resilientImage: {
     ...imgStyle,
@@ -61,11 +63,14 @@ const styles = {
     width: '100%',
     maxWidth: dimensions.maxWidth,
     margin: '0 auto',
-    padding: `40px ${dimensions.padding.horizontal}px`,
+    padding: `40px ${
+      dimensions.padding.horizontal
+    }px 15px ${
+      dimensions.padding.horizontal
+    }px`,
   },
   mainContentTextContainer: {
-    width: 380,
-    paddingTop: 60,
+    width: 300,
     position: 'relative',
     zIndex: 1,
   },
@@ -73,22 +78,25 @@ const styles = {
     color: colors.white,
     fontSize: fonts.size.m,
     fontFamily: fonts.family.main,
-    marginTop: 40,
+    lineHeight: 1.3,
+    marginTop: 30,
   },
   text: {
     color: colors.white,
     fontFamily: fonts.family.main,
-    marginTop: 40,
+    fontWeight: fonts.weight.medium,
+    margin: '40px 0',
   },
   darkText: {
-    color: colors.secondaryColor,
-    fontSize: fonts.size.xxxs,
-    maxWidth: 350,
+    color: colors.text.main,
+    fontSize: fonts.size.xs - 2,
+    width: '70%',
+    minWidth: 350,
   },
   customersText: {
     fontFamily: fonts.family.main,
     fontSize: fonts.size.s,
-    color: colors.secondaryColor,
+    color: colors.black,
   },
   buttonLink: {
     display: 'flex',
@@ -100,19 +108,25 @@ const styles = {
     fontFamily: fonts.family.main,
     fontSize: fonts.size.xs,
     color: colors.thirdColor,
-    fontWeight: fonts.weight.medium,
+    fontWeight: fonts.weight.semiBold,
+  },
+  codeBlockTitle: {
+    color: colors.text.main,
+    marginTop: 0,
+    marginBottom: 20,
+    fontWeight: 500,
   },
   codeBlockBg: {
     backgroundColor: colors.grey.light,
     display: 'flex',
     flexDirection: 'column',
-    paddingBottom: 50,
+    padding: '30px 0',
   },
   codeBlock: {
     color: colors.white,
     backgroundColor: colors.text.main,
     lineHeight: 1.5,
-    padding: 20,
+    overflow: 'scroll',
   },
   customers: {
     display: 'flex',
@@ -124,7 +138,7 @@ const styles = {
     marginRight: 30,
   },
   customer: {
-    maxWidth: 120,
+    maxWidth: 110,
     maxHeight: 40,
   },
   [media.lessThan('medium')]: {
@@ -134,11 +148,13 @@ const styles = {
     scalableImage: { display: 'flex' },
     simpleImage: { display: 'flex' },
     mainContentTextContainer: {
-      width: 300,
-      paddingTop: 20,
+      marginTop: 0,
+    },
+    title: {
+      marginTop: 0,
     },
     text: {
-      fontSize: fonts.size.xxs,
+      fontSize: fonts.size.xs,
     },
     codeBlock: {
       fontSize: fonts.size.xxs,
@@ -146,12 +162,7 @@ const styles = {
     },
   },
   [media.lessThan('small')]: {
-    rocketImage: {
-      width: '120%',
-      right: -50,
-    },
     codeBlock: {
-      fontSize: 9,
       padding: 0,
     },
   },
@@ -174,7 +185,6 @@ const styles = {
 const MainPage = ({ classes }) => (
   <div className={classes.root}>
     <img src={mainImage} className={classes.bgImage} alt="" />
-    {/* eslint-disable max-len */}
     <div className={classes.mainContentBg}>
       <div
         style={{
@@ -202,12 +212,13 @@ const MainPage = ({ classes }) => (
       MAIN.infoBlocks.map(({
         title, subtl, desc, image,
       }, index) => (
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', flexDirection: 'column' }} key={title}>
           <img src={image.src} className={classes[image.key]} alt="" />
           <InfoBlock
             title={title}
             subtl={subtl}
             desc={desc}
+            bgColor={index % 2 !== 0 ? colors.grey.light : colors.white}
             alignTextRight={index % 2 !== 0}
           />
         </div>
@@ -215,7 +226,7 @@ const MainPage = ({ classes }) => (
     }
     <div className={classes.codeBlockBg}>
       <div className={classes.blockContainer}>
-        <h3>
+        <h3 className={classes.codeBlockTitle}>
           Code example
         </h3>
         <p className={classes.darkText}>
@@ -246,7 +257,6 @@ const MainPage = ({ classes }) => (
         }
       </div>
     </div>
-    {/* eslint-enable max-len */}
   </div>
 );
 

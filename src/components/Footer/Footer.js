@@ -16,33 +16,43 @@ const styles = {
     margin: 'auto',
     width: '100%',
     maxWidth: dimensions.maxWidth,
-    padding: `10px ${dimensions.padding.horizontal}px`,
+    padding: `25px ${dimensions.padding.horizontal}px`,
+    paddingBottom: 0,
   },
   navLinkContainer: {
     margin: 0,
-    marginRight: 25,
+    marginRight: 10,
   },
   navLink: {
     textTransform: 'uppercase',
     color: 'white',
     fontFamily: 'Montserrat',
     fontSize: fonts.size.xxs,
-  },
-  navigation: {
-    display: 'flex',
+    fontWeight: fonts.weight.medium,
   },
   navigationMenu: {
     display: 'flex',
     flexDirection: 'row',
+    marginBottom: 20,
+  },
+  navigation: {
+    display: 'flex',
+    alignItems: 'center',
   },
   c: {
     fontFamily: fonts.family.main,
     color: colors.white,
-    fontSize: fonts.size.xxxs,
+    fontSize: fonts.size.xxs,
+    fontWeight: fonts.weight.medium,
   },
   [media.lessThan('medium')]: {
     navigationMenu: {
       flexDirection: 'column',
+      textAlign: 'center',
+      width: '100%',
+    },
+    navLinkContainer: {
+      margin: 10,
     },
   },
 };
@@ -60,8 +70,11 @@ const Footer = ({ menuItems, classes }) => (
     <div className={classes.contentContainer}>
       <div className={classes.navigationMenu}>
         {
-          menuItems.map(item =>
-            <NavLink to={item.route} key={item.title}>{item.title}</NavLink>)
+          menuItems.map(item => (
+            <div className={classes.navLinkContainer} key={item.route}>
+              <NavLink to={item.route} key={item.title}>{item.title}</NavLink>
+            </div>
+          ))
         }
       </div>
     </div>

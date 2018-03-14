@@ -25,26 +25,32 @@ const styles = {
     padding: `0 ${dimensions.padding.horizontal}px`,
   }),
   textContainer: {
-    width: 280,
+    width: 350,
   },
   title: {
     fontSize: fonts.size.s,
     color: colors.text.main,
+    marginBottom: 0,
   },
   subtl: {
     fontSize: fonts.size.xs,
     fontFamily: fonts.family.main,
+    fontWeight: fonts.weight.medium,
     color: colors.text.secondary,
+    margin: '20px 0',
   },
   desc: {
-    fontFamily: fonts.family.secondary,
-    fontSize: fonts.size.xxs,
+    fontFamily: fonts.family.main,
+    fontSize: fonts.size.xs - 2,
     lineHeight: 1.7,
     color: colors.text.secondary,
   },
   [media.lessThan('medium')]: {
     title: {
       marginTop: -50,
+    },
+    textContainer: {
+      width: 280,
     },
     container: () => ({
       height: 340,

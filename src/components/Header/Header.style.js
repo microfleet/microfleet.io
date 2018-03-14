@@ -42,6 +42,7 @@ export default {
     color: 'white',
     fontFamily: 'Montserrat',
     fontSize: fonts.size.xxs,
+    fontWeight: fonts.weight.medium,
   },
   menuIcon: {
     cursor: 'pointer',

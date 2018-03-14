@@ -5,14 +5,16 @@ const typography = new Typography({
   ...theme,
   baseFontSize: '18px',
   headerFontFamily: ['Montserrat', 'sans-serif'],
-  bodyFontFamily: ['Open Sans', 'sans-serif'],
+  headerWeight: '600',
+  bodyFontFamily: ['Montserrat', 'sans-serif'],
+  bodyWeight: '400',
   googleFonts: [
     {
       name: 'Montserrat',
       styles: [
         '400',
+        '500',
         '600',
-        '700',
       ],
     },
     {
@@ -20,8 +22,6 @@ const typography = new Typography({
       styles: [
         '400',
         '400i',
-        '700',
-        '700i',
       ],
     },
   ],

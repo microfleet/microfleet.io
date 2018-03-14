@@ -3,6 +3,7 @@ export const colors = {
   secondaryColor: '#03464B',
   thirdColor: '#32D4D4',
   white: '#FFF',
+  black: '#000',
   grey: {
     light: '#F6F8FA',
   },
@@ -32,7 +33,8 @@ export const fonts = {
     thin: 100,
     light: 200,
     normal: 400,
-    medium: 600,
+    medium: 500,
+    semiBold: 600,
     bold: 700,
   },
 };
