@@ -32,7 +32,7 @@ const styles = {
   bgImage: {
     position: 'absolute',
     width: 1100,
-    top: -50,
+    top: 40,
     right: -50,
   },
   rocketImage: {
@@ -56,8 +56,9 @@ const styles = {
   },
   mainContentBg: {
     backgroundColor: colors.mainColor,
-    height: 568,
+    height: 658,
     display: 'flex',
+    paddingTop: 90,
   },
   blockContainer: {
     width: '100%',

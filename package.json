@@ -5,7 +5,8 @@
   "scripts": {
     "develop": "gatsby develop",
     "build": "gatsby build",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "deploy:surge": "rm -rf public && gatsby build && surge ./public -d https://microfleet.surge.sh"
   },
   "dependencies": {
     "gatsby": "^1.9.202",
