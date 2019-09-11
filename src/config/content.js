@@ -6,6 +6,7 @@ const scalableImage = require('../static/scalable.png');
 const simpleImage = require('../static/simple.png');
 
 export const MENU = [
+  /*
   {
     title: 'Intro',
     route: '/',
@@ -30,6 +31,7 @@ export const MENU = [
     title: 'Contact',
     route: '/contact',
   },
+   */
 ];
 
 export const MAIN = {

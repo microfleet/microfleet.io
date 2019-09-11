@@ -3,14 +3,16 @@
   "description": "Microfleet documentation website",
   "license": "MIT",
   "scripts": {
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
+    "deploy:gh": "rm -rf public .cache && gatsby build && gh-pages -d public",
     "deploy:surge": "rm -rf public && gatsby build && surge ./public -d https://microfleet.surge.sh"
   },
   "dependencies": {
     "gatsby": "^1.9.202",
     "gatsby-link": "^1.6.37",
+    "gatsby-plugin-typography": "^1.6.3",
     "react-hamburger-menu": "^1.0.0",
     "react-jss": "^8.3.3",
     "react-responsive": "^4.0.4",
@@ -23,6 +25,7 @@
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.6.1"
+    "eslint-plugin-react": "^7.6.1",
+    "gh-pages": "^2.1.1"
   }
 }
