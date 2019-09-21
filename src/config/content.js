@@ -1,9 +1,9 @@
-const cappasity = require('../static/cappasity.png');
-const radioFx = require('../static/radiofx.png');
-const cappasityToken = require('../static/cappasity-token.png');
-const resilientImage = require('../static/resilient.png');
-const scalableImage = require('../static/scalable.png');
-const simpleImage = require('../static/simple.png');
+const cappasity = require('../static/cappasity.png')
+const radioFx = require('../static/radiofx.png')
+const cappasityToken = require('../static/cappasity-token.png')
+const resilientImage = require('../static/resilient.png')
+const scalableImage = require('../static/scalable.png')
+const simpleImage = require('../static/simple.png')
 
 export const MENU = [
   /*
@@ -32,7 +32,7 @@ export const MENU = [
     route: '/contact',
   },
    */
-];
+]
 
 export const MAIN = {
   customers: [
@@ -88,6 +88,6 @@ export const MAIN = {
         "statusCode": 400
     }
   `,
-};
+}
 
-export default MAIN;
+export default MAIN

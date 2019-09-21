@@ -1,4 +1,4 @@
-import { colors, fonts, dimensions } from '../../theme';
+import { colors, fonts, dimensions } from '../../theme'
 
 export default {
   container: {
@@ -13,7 +13,7 @@ export default {
     opacity: 0.98,
   },
   mobileNavContainer: {
-    diplay: 'flex',
+    display: 'flex',
     flexDirection: 'column',
     position: 'fixed',
     zIndex: 99,
@@ -53,4 +53,4 @@ export default {
   menuIcon: {
     cursor: 'pointer',
   },
-};
+}

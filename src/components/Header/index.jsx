@@ -1,12 +1,12 @@
-import React from 'react';
-import MediaQuery from 'react-responsive';
+import React from 'react'
+import MediaQuery from 'react-responsive'
 
-import HeaderDesktop from './HeaderDesktop';
-import HeaderMobile from './HeaderMobile';
+import { HeaderDesktop } from './Desktop'
+import { HeaderMobile } from './Mobile'
 
-import { media } from '../../theme';
+import { media } from '../../theme'
 
-export const Header = props => (
+export const Header = (props) => (
   <div>
     <MediaQuery query={media.greaterThan('medium', { dropPrefix: true })}>
       <HeaderDesktop {...props} />
@@ -15,6 +15,4 @@ export const Header = props => (
       <HeaderMobile {...props} />
     </MediaQuery>
   </div>
-);
-
-export default Header;
+)

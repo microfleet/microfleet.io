@@ -1,5 +1,5 @@
-import Typography from 'typography';
-import theme from 'typography-theme-grand-view';
+import Typography from 'typography'
+import theme from 'typography-theme-grand-view'
 
 const typography = new Typography({
   ...theme,
@@ -41,6 +41,6 @@ const typography = new Typography({
       opacity: 0.5,
     },
   }),
-});
+})
 
-export default typography;
+export default typography

@@ -1,9 +1,11 @@
-import React from 'react';
-import Link from 'gatsby-link';
-import injectSheet from 'react-jss';
+import React from 'react'
+import Link from 'gatsby-link'
+import injectSheet from 'react-jss'
 
-import { colors, fonts, dimensions, media } from '../../theme';
-import githubIcon from '../../static/github.svg';
+import {
+  colors, fonts, dimensions, media,
+} from '../theme'
+import githubIcon from '../static/github.svg'
 
 const styles = {
   container: {
@@ -55,22 +57,22 @@ const styles = {
       margin: 10,
     },
   },
-};
+}
 
-const NavLink = props => (
+const NavLink = ({ to, children }) => (
   <p style={styles.navLinkContainer}>
-    <Link to={props.to} style={styles.navLink}>
-      {props.children}
+    <Link to={to} style={styles.navLink}>
+      {children}
     </Link>
   </p>
-);
+)
 
-const Footer = ({ menuItems, classes }) => (
+const FooterComponent = ({ menuItems, classes }) => (
   <div className={classes.container}>
     <div className={classes.contentContainer}>
       <div className={classes.navigationMenu}>
         {
-          menuItems.map(item => (
+          menuItems.map((item) => (
             <div className={classes.navLinkContainer} key={item.route}>
               <NavLink to={item.route} key={item.title}>{item.title}</NavLink>
             </div>
@@ -87,6 +89,6 @@ const Footer = ({ menuItems, classes }) => (
       <p className={classes.c}>{`${(new Date()).getFullYear()} Microfleet`}</p>
     </div>
   </div>
-);
+)
 
-export default injectSheet(styles)(Footer);
+export const Footer = injectSheet(styles)(FooterComponent)

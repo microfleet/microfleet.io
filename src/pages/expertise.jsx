@@ -1,7 +1,7 @@
-import React from 'react';
-import injectSheet from 'react-jss';
+import React from 'react'
+import injectSheet from 'react-jss'
 
-import { colors } from '../theme';
+import { colors } from '../theme'
 
 const styles = {
   root: {
@@ -15,12 +15,12 @@ const styles = {
     textAlign: 'center',
     color: colors.mainColor,
   },
-};
+}
 
-const GuidesPage = ({ classes }) => (
+const ExpertisePage = ({ classes }) => (
   <div className={classes.root}>
     <h1 className={classes.text}>Work in progress</h1>
   </div>
-);
+)
 
-export default injectSheet(styles)(GuidesPage);
+export default injectSheet(styles)(ExpertisePage)

@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
-import Link from 'gatsby-link';
-import Menu from 'react-hamburger-menu';
+import React, { Component } from 'react'
+import Link from 'gatsby-link'
+import Menu from 'react-hamburger-menu'
 
-import NavLink from './NavLink';
-import { colors } from '../../theme';
-import styles from './Header.style';
+import { HeaderNavLink } from './NavLink'
+import { colors } from '../../theme'
+import styles from './styles'
 
-export default class HeaderMobile extends Component {
+export class HeaderMobile extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       isMenuOpen: false,
-    };
+    }
   }
 
   render() {
-    const { menuItems } = this.props;
-    const { isMenuOpen } = this.state;
+    const { menuItems } = this.props
+    const { isMenuOpen } = this.state
 
     return (
       <div>
@@ -29,8 +29,8 @@ export default class HeaderMobile extends Component {
             <div style={styles.navContainer}>
               <div style={styles.menuIcon}>
                 <Menu
-                  isOpen={this.state.isMenuOpen}
-                  menuClicked={() => { this.setState({ isMenuOpen: !isMenuOpen }); }}
+                  isOpen={isMenuOpen}
+                  menuClicked={() => { this.setState({ isMenuOpen: !isMenuOpen }) }}
                   width={25}
                   height={18}
                   strokeWidth={3}
@@ -43,22 +43,23 @@ export default class HeaderMobile extends Component {
             </div>
           </div>
         </div>
-        {isMenuOpen &&
+        {isMenuOpen
+          && (
           <div style={styles.mobileNavContainer}>
             {
-              menuItems.map(item => (
-                <NavLink
+              menuItems.map((item) => (
+                <HeaderNavLink
                   to={item.route}
                   key={item.title}
-                  handleClick={() => { this.setState({ isMenuOpen: !isMenuOpen }); }}
+                  handleClick={() => { this.setState({ isMenuOpen: !isMenuOpen }) }}
                 >
                   {item.title}
-                </NavLink>
+                </HeaderNavLink>
               ))
             }
           </div>
-        }
+          )}
       </div>
-    );
+    )
   }
 }

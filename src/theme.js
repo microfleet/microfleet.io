@@ -11,7 +11,7 @@ export const colors = {
     main: '#212b35',
     secondary: '#637280',
   },
-};
+}
 
 export const fonts = {
   family: {
@@ -37,7 +37,7 @@ export const fonts = {
     semiBold: 600,
     bold: 700,
   },
-};
+}
 
 export const dimensions = {
   maxWidth: 964,
@@ -45,7 +45,7 @@ export const dimensions = {
     vertical: 40,
     horizontal: 20,
   },
-};
+}
 
 export const SIZES = {
   xsmall: { min: 0, max: 599 },
@@ -54,57 +54,57 @@ export const SIZES = {
   large: { min: 980, max: 1279 },
   xlarge: { min: 1280, max: 1339 },
   xxlarge: { min: 1340, max: Infinity },
-};
+}
 
 export const media = {
   lessThan(key, options = { dropPrefix: false }) {
     return `${options.dropPrefix ? '' : '@media '}(max-width: ${
       SIZES[key].min - 1
-    }px)`;
+    }px)`
   },
 
   greaterThan(key, options = { dropPrefix: false }) {
     return `${options.dropPrefix ? '' : '@media '}(min-width: ${
       SIZES[key].min
-    }px)`;
+    }px)`
   },
 
   between(smallKey, largeKey, options = {
     excludeLarge: false,
     dropPrefix: false,
   }) {
-    const { excludeLarge, dropPrefix } = options;
-    const prefix = dropPrefix ? '' : '@media ';
+    const { excludeLarge, dropPrefix } = options
+    const prefix = dropPrefix ? '' : '@media '
 
     if (excludeLarge) {
       return `${prefix}(min-width: ${
         SIZES[smallKey].min
-      }px) and (max-width: ${SIZES[largeKey].min - 1}px)`;
+      }px) and (max-width: ${SIZES[largeKey].min - 1}px)`
     }
     if (SIZES[largeKey].max === Infinity) {
-      return `${prefix}(min-width: ${SIZES[smallKey].min}px)`;
+      return `${prefix}(min-width: ${SIZES[smallKey].min}px)`
     }
 
     return `${prefix}(min-width: ${SIZES[smallKey].min}px) and (max-width: ${
       SIZES[largeKey].max
-    }px)`;
+    }px)`
   },
 
   size(key, options = { dropPrefix: false }) {
-    const size = SIZES[key];
+    const size = SIZES[key]
 
     if (size.min == null) {
-      return media.lessThan(key, options);
+      return media.lessThan(key, options)
     }
     if (size.max == null) {
-      return media.greaterThan(key, options);
+      return media.greaterThan(key, options)
     }
 
     return media.between(key, key, {
       ...options,
       excludeLarge: false,
-    });
+    })
   },
-};
+}
 
-export default colors;
+export default colors

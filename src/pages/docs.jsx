@@ -1,8 +1,8 @@
-import React from 'react';
-import injectSheet from 'react-jss';
+import React from 'react'
+import injectSheet from 'react-jss'
 
-import { colors, dimensions } from '../theme';
-import docsImage from '../static/docs-img.png';
+import { colors, dimensions } from '../theme'
+import docsImage from '../static/docs-img.png'
 
 const styles = {
   root: {
@@ -40,7 +40,7 @@ const styles = {
     textAlign: 'center',
     color: colors.mainColor,
   },
-};
+}
 
 const DocsPage = ({ classes }) => (
   <div className={classes.root}>
@@ -48,6 +48,6 @@ const DocsPage = ({ classes }) => (
       <img src={docsImage} className={classes.image} alt="" />
     </div>
   </div>
-);
+)
 
-export default injectSheet(styles)(DocsPage);
+export default injectSheet(styles)(DocsPage)

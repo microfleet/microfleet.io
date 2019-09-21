@@ -1,18 +1,19 @@
-import React from 'react';
-import Link from 'gatsby-link';
-import injectSheet from 'react-jss';
+import React from 'react'
+import Link from 'gatsby-link'
+import injectSheet from 'react-jss'
 
-import InfoBlock from '../components/InfoBlock';
+import { InfoBlock } from '../components/InfoBlock'
+import { Layout } from '../components/Layout'
 import {
   colors,
   fonts,
   dimensions,
   media,
-} from '../theme';
-import { MAIN } from '../config/content';
+} from '../theme'
+import { MAIN } from '../config/content'
 
-import mainImage from '../static/main-image.png';
-import rocketImage from '../static/rocket.png';
+import mainImage from '../static/main-image.png'
+import rocketImage from '../static/rocket.png'
 
 const imgStyle = {
   display: 'none',
@@ -20,7 +21,7 @@ const imgStyle = {
   width: '60%',
   minWidth: 350,
   margin: 0,
-};
+}
 
 const styles = {
   root: {
@@ -181,84 +182,86 @@ const styles = {
       right: `calc((100% - ${dimensions.maxWidth}px) / 2 - 300px)`,
     },
   },
-};
+}
 
 const MainPage = ({ classes }) => (
-  <div className={classes.root}>
-    <img src={mainImage} className={classes.bgImage} alt="" />
-    <div className={classes.mainContentBg}>
-      <div
-        style={{
-          ...styles.blockContainer,
-          display: 'flex',
-          backgroundColor: colors.mainColor,
-        }}
-      >
-        <div className={classes.mainContentTextContainer}>
-          <h1 className={classes.title}>
-            Microfleet Fastlane to the market
-          </h1>
-          <p className={classes.text}>
-            Opinionated framework with simple, flexible, scalable and resilent
-            prebuilt microservices that glue together like lego blocks.
+  <Layout>
+    <div className={classes.root}>
+      <img src={mainImage} className={classes.bgImage} alt="" />
+      <div className={classes.mainContentBg}>
+        <div
+          style={{
+            ...styles.blockContainer,
+            display: 'flex',
+            backgroundColor: colors.mainColor,
+          }}
+        >
+          <div className={classes.mainContentTextContainer}>
+            <h1 className={classes.title}>
+              Microfleet Fastlane to the market
+            </h1>
+            <p className={classes.text}>
+              Opinionated framework with simple, flexible, scalable and resilent
+              prebuilt microservices that glue together like lego blocks.
+            </p>
+            <Link to="/" className={classes.buttonLink}>
+              Get started
+            </Link>
+          </div>
+          <img src={rocketImage} className={classes.rocketImage} alt="" />
+        </div>
+      </div>
+      {
+        MAIN.infoBlocks.map(({
+          title, subtl, desc, image,
+        }, index) => (
+          <div style={{ display: 'flex', flexDirection: 'column' }} key={title}>
+            <img src={image.src} className={classes[image.key]} alt="" />
+            <InfoBlock
+              title={title}
+              subtl={subtl}
+              desc={desc}
+              bgColor={index % 2 !== 0 ? colors.grey.light : colors.white}
+              alignTextRight={index % 2 !== 0}
+            />
+          </div>
+        ))
+      }
+      <div className={classes.codeBlockBg}>
+        <div className={classes.blockContainer}>
+          <h3 className={classes.codeBlockTitle}>
+            Code example
+          </h3>
+          <p className={classes.darkText}>
+            Use attributes from other resources to create an infrastructure
+            composed of resources across multiple providers.
+          </p>
+          <pre className={classes.codeBlock}>{MAIN.codeExample}</pre>
+          <p className={classes.darkText}>
+            The intro contains a walkthrough guide, introductory literature,
+            and a range of examples to experiment with Microfleet.
           </p>
           <Link to="/" className={classes.buttonLink}>
             Get started
           </Link>
         </div>
-        <img src={rocketImage} className={classes.rocketImage} alt="" />
       </div>
-    </div>
-    {
-      MAIN.infoBlocks.map(({
-        title, subtl, desc, image,
-      }, index) => (
-        <div style={{ display: 'flex', flexDirection: 'column' }} key={title}>
-          <img src={image.src} className={classes[image.key]} alt="" />
-          <InfoBlock
-            title={title}
-            subtl={subtl}
-            desc={desc}
-            bgColor={index % 2 !== 0 ? colors.grey.light : colors.white}
-            alignTextRight={index % 2 !== 0}
-          />
-        </div>
-      ))
-    }
-    <div className={classes.codeBlockBg}>
       <div className={classes.blockContainer}>
-        <h3 className={classes.codeBlockTitle}>
-          Code example
-        </h3>
-        <p className={classes.darkText}>
-          Use attributes from other resources to create an infrastructure
-          composed of resources across multiple providers.
+        <p className={classes.customersText}>
+          Some of our customers
         </p>
-        <pre className={classes.codeBlock}>{MAIN.codeExample}</pre>
-        <p className={classes.darkText}>
-          The intro contains a walkthrough guide, introductory literature,
-          and a range of examples to experiment with Microfleet.
-        </p>
-        <Link to="/" className={classes.buttonLink}>
-          Get started
-        </Link>
+        <div className={classes.customers}>
+          {
+            MAIN.customers.map((customer) => (
+              <div className={classes.customerContainer} key={customer}>
+                <img src={customer} className={classes.customer} alt="" />
+              </div>
+            ))
+          }
+        </div>
       </div>
     </div>
-    <div className={classes.blockContainer}>
-      <p className={classes.customersText}>
-        Some of our customers
-      </p>
-      <div className={classes.customers}>
-        {
-          MAIN.customers.map(customer => (
-            <div className={classes.customerContainer} key={customer}>
-              <img src={customer} className={classes.customer} alt="" />
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </div>
-);
+  </Layout>
+)
 
-export default injectSheet(styles)(MainPage);
+export default injectSheet(styles)(MainPage)

@@ -10,22 +10,26 @@
     "deploy:surge": "rm -rf public && gatsby build && surge ./public -d https://microfleet.surge.sh"
   },
   "dependencies": {
-    "gatsby": "^1.9.202",
-    "gatsby-link": "^1.6.37",
-    "gatsby-plugin-typography": "^1.6.3",
-    "react-hamburger-menu": "^1.0.0",
-    "react-jss": "^8.3.3",
-    "react-responsive": "^4.0.4",
-    "react-typography": "^0.16.13",
-    "typography-theme-grand-view": "^0.15.10"
+    "gatsby": "^2.15.20",
+    "gatsby-link": "^2.2.15",
+    "gatsby-plugin-typography": "^2.3.8",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-hamburger-menu": "^1.1.1",
+    "react-jss": "^8.6.1",
+    "react-responsive": "^8.0.1",
+    "react-typography": "^0.16.19",
+    "typography": "^0.16.19",
+    "typography-theme-grand-view": "^0.16.19"
   },
   "devDependencies": {
-    "@babel/plugin-syntax-export-default-from": "^7.0.0-beta.40",
-    "eslint": "^4.18.0",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.6.1",
+    "@babel/plugin-syntax-export-default-from": "^7.2.0",
+    "babel-preset-gatsby": "^0.2.14",
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
     "gh-pages": "^2.1.1"
   }
 }

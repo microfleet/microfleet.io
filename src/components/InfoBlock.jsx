@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import injectSheet from 'react-jss';
 
 import {
@@ -6,16 +6,16 @@ import {
   fonts,
   dimensions,
   media,
-} from '../../theme';
+} from '../theme';
 
 const styles = {
-  container: props => ({
+  container: (props) => ({
     height: 440,
     backgroundColor: props.bgColor,
     display: 'flex',
     alignItems: 'center',
   }),
-  contentContainer: props => ({
+  contentContainer: (props) => ({
     width: '100%',
     maxWidth: dimensions.maxWidth,
     display: 'flex',
@@ -59,7 +59,7 @@ const styles = {
   },
 };
 
-const InfoBlock = ({
+const InfoBlockComponent = ({
   classes,
   title,
   subtl,
@@ -76,8 +76,8 @@ const InfoBlock = ({
   </div>
 );
 
-InfoBlock.defaultProps = {
+InfoBlockComponent.defaultProps = {
   bgColor: colors.white,
 };
 
-export default injectSheet(styles)(InfoBlock);
+export const InfoBlock = injectSheet(styles)(InfoBlockComponent);
