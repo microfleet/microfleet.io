@@ -6,5 +6,6 @@ module.exports = {
         pathToConfigModule: 'src/config/typography.js',
       },
     },
+    'gatsby-plugin-jss',
   ],
-};
+}
