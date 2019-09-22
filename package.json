@@ -2,10 +2,14 @@
   "name": "mf-website",
   "description": "Microfleet documentation website",
   "license": "MIT",
+  "version": "0.0.1",
   "scripts": {
     "dev": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
+    "release": "yarn semantic-release",
+    "release:local": "yarn semantic-release --no-ci",
+    "semantic-release": "export $(cat .env | xargs) && semantic-release",
     "deploy": "yarn deploy:gh",
     "deploy:gh": "rm -rf public .cache && gatsby build && gh-pages -d public",
     "deploy:surge": "rm -rf public && gatsby build && surge ./public -d https://microfleet.surge.sh"
@@ -25,12 +29,75 @@
     "typography-theme-grand-view": "^0.16.19"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^3.0.4",
+    "@semantic-release/exec": "^3.3.6",
+    "@semantic-release/git": "^7.0.16",
+    "@semantic-release/github": "^5.4.3",
+    "@semantic-release/npm": "^5.1.15",
     "babel-preset-gatsby": "^0.2.14",
     "eslint": "^6.4.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
-    "gh-pages": "^2.1.1"
+    "gh-pages": "^2.1.1",
+    "semantic-release": "^15.13.24"
+  },
+  "release": {
+    "branch": "master",
+    "verifyConditions": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ],
+    "analyzeCommits": {
+      "preset": "angular",
+      "releaseRules": [
+        {
+          "type": "docs",
+          "release": "patch"
+        },
+        {
+          "type": "refactor",
+          "release": "patch"
+        },
+        {
+          "type": "style",
+          "release": "patch"
+        },
+        {
+          "type": "minor",
+          "release": "minor"
+        },
+        {
+          "type": "patch",
+          "release": "patch"
+        },
+        {
+          "type": "major",
+          "release": "major"
+        },
+        {
+          "type": "breaking",
+          "release": "major"
+        }
+      ]
+    },
+    "prepare": [
+      "@semantic-release/changelog",
+      {
+        "path": "@semantic-release/npm",
+        "npmPublish": false
+      },
+      {
+        "path": "@semantic-release/exec",
+        "cmd": "yarn deploy"
+      },
+      "@semantic-release/git"
+    ],
+    "publish": [
+      "@semantic-release/github"
+    ]
   }
 }
