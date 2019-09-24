@@ -2,6 +2,8 @@ import React from 'react'
 import Link from 'gatsby-link'
 import injectSheet from 'react-jss'
 
+import pkg from '../../package.json'
+
 import {
   colors, fonts, dimensions, media,
 } from '../theme'
@@ -86,7 +88,7 @@ const FooterComponent = ({ menuItems, classes }) => (
           <img src={githubIcon} style={{ width: 24 }} alt="Github" />
         </a>
       </div>
-      <p className={classes.c}>{`${(new Date()).getFullYear()} Microfleet`}</p>
+      <p className={classes.c} title={`v${pkg.version}`}>{`${(new Date()).getFullYear()} Microfleet`}</p>
     </div>
   </div>
 )
