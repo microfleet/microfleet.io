@@ -2,7 +2,7 @@
   "name": "mf-website",
   "description": "Microfleet documentation website",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "dev": "gatsby develop",
     "build": "gatsby build",
