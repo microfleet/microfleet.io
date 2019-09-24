@@ -1,0 +1,24 @@
+name: CI
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js 10.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: install yarn
+      run: curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.17.3
+    - name: yarn install and release
+      run: |
+        yarn install --frozen-lockfile
+        yarn release --debug=true
+      env:
+        CI: true
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}

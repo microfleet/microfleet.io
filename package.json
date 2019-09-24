@@ -47,7 +47,10 @@
     "branch": "master",
     "verifyConditions": [
       "@semantic-release/changelog",
-      "@semantic-release/npm",
+      {
+        "path": "@semantic-release/npm",
+        "npmPublish": false
+      },
       "@semantic-release/git",
       "@semantic-release/github"
     ],
@@ -86,10 +89,7 @@
     },
     "prepare": [
       "@semantic-release/changelog",
-      {
-        "path": "@semantic-release/npm",
-        "npmPublish": false
-      },
+      "@semantic-release/npm",
       {
         "path": "@semantic-release/exec",
         "cmd": "yarn deploy"

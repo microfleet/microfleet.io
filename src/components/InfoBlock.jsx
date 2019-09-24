@@ -1,12 +1,12 @@
-import * as React from 'react';
-import injectSheet from 'react-jss';
+import * as React from 'react'
+import injectSheet from 'react-jss'
 
 import {
   colors,
   fonts,
   dimensions,
   media,
-} from '../theme';
+} from '../theme'
 
 const styles = {
   container: (props) => ({
@@ -57,7 +57,7 @@ const styles = {
       backgroundColor: colors.white,
     }),
   },
-};
+}
 
 const InfoBlockComponent = ({
   classes,
@@ -74,10 +74,10 @@ const InfoBlockComponent = ({
       </div>
     </div>
   </div>
-);
+)
 
 InfoBlockComponent.defaultProps = {
   bgColor: colors.white,
-};
+}
 
-export const InfoBlock = injectSheet(styles)(InfoBlockComponent);
+export const InfoBlock = injectSheet(styles)(InfoBlockComponent)
