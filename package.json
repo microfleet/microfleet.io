@@ -10,8 +10,9 @@
     "release": "yarn semantic-release",
     "release:local": "yarn semantic-release --no-ci",
     "semantic-release": "export $(cat .env | xargs) && semantic-release",
-    "deploy": "yarn deploy:gh",
+    "deploy": "yarn deploy:$([[ -n $CI ]] && echo ci || echo gh)",
     "deploy:gh": "rm -rf public .cache && gatsby build && gh-pages -d public",
+    "deploy:ci": "yarn deploy:gh --repo https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git",
     "deploy:surge": "rm -rf public && gatsby build && surge ./public -d https://microfleet.surge.sh"
   },
   "dependencies": {
