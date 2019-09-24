@@ -93,6 +93,7 @@
       "@semantic-release/npm",
       {
         "path": "@semantic-release/exec",
+        "shell": "/bin/bash",
         "cmd": "yarn deploy"
       },
       "@semantic-release/git"
